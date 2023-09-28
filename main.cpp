@@ -10,7 +10,6 @@ using namespace std;
 int main()
 {
 	vector<int> vector_simple;
-	//vector_simple.at(0) = 3;
 
 	vector<int> vector_with_dim(5);
 	vector<int> vector_by_copy(vector_with_dim);

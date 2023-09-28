@@ -71,13 +71,15 @@ void vector<T>::pop_back()
 template <typename T>
 T& vector<T>::operator[](size_t i)
 {
-    std::cout<<"operator[] A VENIR"<<std::endl;
+    std::cout<<"operator[] En cours"<<std::endl;
+    return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::operator[](size_t i)const
 {
-    std::cout<<"operator[]const A VENIR"<<std::endl;
+    std::cout<<"operator[]const En cours"<<std::endl;
+    return m_debut[i];
 }
 
 template <typename T>
@@ -85,6 +87,7 @@ T& vector<T>::at(size_t i)
 {
     std::cout<<"at A VENIR"<<std::endl;
 }
+
 template <typename T>
 const T& vector<T>::at(size_t i)const
 {
