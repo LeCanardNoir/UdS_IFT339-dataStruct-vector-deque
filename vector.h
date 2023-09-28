@@ -17,50 +17,50 @@
 template <typename T>
 class vector
 {
-private:
-    T *m_debut,*m_finDim,*m_finCap;
+    private:
+        T *m_debut,*m_finDim,*m_finCap;
     
-public:
-    vector();
-    vector(size_t);
-    ~vector();
-    vector(const vector&);
-    vector& operator=(const vector&);
+    public:
+        vector();
+        vector(size_t);
+        ~vector();
+        vector(const vector&);
+        vector& operator=(const vector&);
     
-    class iterator;
-    class const_iterator;
-    class reverse_iterator;
+        class iterator;
+        class const_iterator;
+        class reverse_iterator;
     
-    void resize(size_t);
-    void reserve(size_t);
-    size_t size()const;
-    bool empty()const;
-    void clear();
-    void swap(vector&);
+        void resize(size_t);
+        void reserve(size_t);
+        size_t size()const;
+        bool empty()const;
+        void clear();
+        void swap(vector&);
     
-    T& back();
-    const T& back()const;
-    T& front();
-    const T& front()const;
-    void push_back(const T&);
-    void pop_back();
-    T& operator[](size_t);
-    const T& operator[](size_t)const;
-    T& at(size_t);
-    const T& at(size_t)const;
+        T& back();
+        const T& back()const;
+        T& front();
+        const T& front()const;
+        void push_back(const T&);
+        void pop_back();
+        T& operator[](size_t);
+        const T& operator[](size_t)const;
+        T& at(size_t);
+        const T& at(size_t)const;
     
-    //fonctions d'iteration du vector
-    iterator begin();
-    iterator end();
-	const_iterator begin() const;
-    const_iterator end() const;
-	const_iterator cbegin() const;
-    const_iterator cend() const;
-    reverse_iterator rbegin();
-    reverse_iterator rend();
+        //fonctions d'iteration du vector
+        iterator begin();
+        iterator end();
+	    const_iterator begin() const;
+        const_iterator end() const;
+	    const_iterator cbegin() const;
+        const_iterator cend() const;
+        reverse_iterator rbegin();
+        reverse_iterator rend();
 
-    //code jetable
-    void afficher(std::ostream&)const;
+        //code jetable
+        void afficher(std::ostream&)const;
 };
 
 template <typename T>
@@ -72,55 +72,55 @@ std::ostream& operator<<(std::ostream&,const vector<T>& V);
 template<typename T>
 class vector<T>::iterator
 {
-friend class vector<T>;
+    friend class vector<T>;
 
-private:
-    T *m_pointeur;
-    iterator(T *p=nullptr):m_pointeur(p){}
-public:    
-    T& operator*();
-    iterator operator++(){return iterator(++m_pointeur);}    //++i
-    iterator operator++(int){return iterator(m_pointeur++);} //i++
-    iterator operator--(){return iterator(--m_pointeur);}    //--i
-    iterator operator--(int){return iterator(m_pointeur--);} //i--
-    bool operator==(const iterator& droite){return m_pointeur==droite.m_pointeur;}
-    bool operator!=(const iterator& droite){return m_pointeur!=droite.m_pointeur;}
+    private:
+        T *m_pointeur;
+        iterator(T *p=nullptr):m_pointeur(p){}
+    public:    
+        T& operator*();
+        iterator operator++(){return iterator(++m_pointeur);}    //++i
+        iterator operator++(int){return iterator(m_pointeur++);} //i++
+        iterator operator--(){return iterator(--m_pointeur);}    //--i
+        iterator operator--(int){return iterator(m_pointeur--);} //i--
+        bool operator==(const iterator& droite){return m_pointeur==droite.m_pointeur;}
+        bool operator!=(const iterator& droite){return m_pointeur!=droite.m_pointeur;}
 };
 
 template<typename T>
 class vector<T>::const_iterator
 {
-friend class vector<T>;
+    friend class vector<T>;
 
-private:
-    T *m_pointeur;
-    const_iterator(T *p=nullptr):m_pointeur(p){}
-public:    
-    const T& operator*() const;
-    const_iterator operator++(){return const_iterator(++m_pointeur);}    //++i
-    const_iterator operator++(int){return const_iterator(m_pointeur++);} //i++
-    const_iterator operator--(){return const_iterator(--m_pointeur);}    //--i
-    const_iterator operator--(int){return const_iterator(m_pointeur--);} //i--
-    bool operator==(const const_iterator& droite){return m_pointeur==droite.m_pointeur;}
-    bool operator!=(const const_iterator& droite){return m_pointeur!=droite.m_pointeur;}
+    private:
+        T *m_pointeur;
+        const_iterator(T *p=nullptr):m_pointeur(p){}
+    public:    
+        const T& operator*() const;
+        const_iterator operator++(){return const_iterator(++m_pointeur);}    //++i
+        const_iterator operator++(int){return const_iterator(m_pointeur++);} //i++
+        const_iterator operator--(){return const_iterator(--m_pointeur);}    //--i
+        const_iterator operator--(int){return const_iterator(m_pointeur--);} //i--
+        bool operator==(const const_iterator& droite){return m_pointeur==droite.m_pointeur;}
+        bool operator!=(const const_iterator& droite){return m_pointeur!=droite.m_pointeur;}
 };
 
 template<typename T>
 class vector<T>::reverse_iterator
 {
-friend class vector<T>;
+    friend class vector<T>;
 
-private:
-    T *m_pointeur;
-    reverse_iterator(T *p=nullptr):m_pointeur(p){}
-public:    
-    T& operator*();
-    reverse_iterator operator++(){return reverse_iterator(--m_pointeur);}    //++i
-    reverse_iterator operator++(int){return reverse_iterator(m_pointeur--);} //i++
-    reverse_iterator operator--(){return reverse_iterator(++m_pointeur);}    //--i
-    reverse_iterator operator--(int){return reverse_iterator(m_pointeur++);} //i--
-    bool operator==(const reverse_iterator& droite){return m_pointeur==droite.m_pointeur;}
-    bool operator!=(const reverse_iterator& droite){return m_pointeur!=droite.m_pointeur;}
+    private:
+        T *m_pointeur;
+        reverse_iterator(T *p=nullptr):m_pointeur(p){}
+    public:    
+        T& operator*();
+        reverse_iterator operator++(){return reverse_iterator(--m_pointeur);}    //++i
+        reverse_iterator operator++(int){return reverse_iterator(m_pointeur--);} //i++
+        reverse_iterator operator--(){return reverse_iterator(++m_pointeur);}    //--i
+        reverse_iterator operator--(int){return reverse_iterator(m_pointeur++);} //i--
+        bool operator==(const reverse_iterator& droite){return m_pointeur==droite.m_pointeur;}
+        bool operator!=(const reverse_iterator& droite){return m_pointeur!=droite.m_pointeur;}
 };
 
 
