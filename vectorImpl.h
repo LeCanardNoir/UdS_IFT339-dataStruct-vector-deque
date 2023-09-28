@@ -23,7 +23,9 @@
 template <typename T>
 void vector<T>::clear()
 {
-    std::cout<<"fonction clear A VENIR"<<std::endl;
+    delete m_debut;
+    m_debut = nullptr;
+    m_finDim = m_finCap = 0;
 }
 
 ///////////////////////////////////////////////////
