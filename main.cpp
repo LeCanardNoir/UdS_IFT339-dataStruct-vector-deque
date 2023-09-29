@@ -47,11 +47,12 @@ int main()
 	vector_by_copy_5.afficher(cout);
 	cout << endl;
 
-	//cout << endl;
-	//cout << "----------------------------------// vector_vector_double:";
-	//cout << endl;
-	//vector<vector<double>> vector_vector_double();
-	//cout << endl;
+	cout << endl;
+	cout << "----------------------------------// vector_vector_double:";
+	cout << endl;
+	vector<vector<double>> vector_vector_double();
+	//vector_vector_double[0].afficher(cout);
+	cout << endl;
 
 
 	cout << endl;
@@ -61,6 +62,6 @@ int main()
 	vector_by_copy_5.clear();
 	cout << endl << "----------------------------------// END";
 
-	cin.ignore();
+	//cin.ignore();
 	return 0;
 }
