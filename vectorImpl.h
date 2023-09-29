@@ -38,7 +38,12 @@ void vector<T>::clear()
 template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
-    std::cout<<"resize A VENIR"<<std::endl;
+    std::cout<<"resize IN PROGRESS"<<std::endl;
+    int* tmp = m_debut + nDIM;
+    if (tmp > m_finCap) {
+        reserve(nDIM);
+    }
+    m_finDim = tmp;
 }
 
 
@@ -48,7 +53,11 @@ void vector<T>::resize(size_t nDIM)
 template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
-    std::cout<<"reserve A VENIR"<<std::endl;
+    std::cout<<"reserve  IN PROGRESS"<<std::endl;
+    int* tmp = m_debut + nCAP;
+    if (m_finCap < tmp)
+        m_finCap = tmp;
+
 }
 
 ///////////////////////////////////////////////////
