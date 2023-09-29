@@ -77,7 +77,9 @@ template <typename T>
 void vector<T>::pop_back()
 {
     //std::cout<<"pop_back A VENIR"<<std::endl;
-    m_finDim--;
+    if (size() > 0) {
+        m_finDim--;
+    }
 }
 
 template <typename T>
