@@ -66,10 +66,10 @@ void vector<T>::push_back(const T& x)
     //std::cout<<"push_back  À VENIR"<<std::endl;
     if (m_finDim == m_finCap) {
         const size_t CELLULES_A_AJOUTER = 5
-            reserve(CELLULES_A_AJOUTER);
+            reserve(size() + CELLULES_A_AJOUTER);
     }
 
-    at(size()) = x;
+    *m_finDim = x;
     m_finDim++;
 }
 
