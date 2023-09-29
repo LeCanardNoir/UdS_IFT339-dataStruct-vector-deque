@@ -91,7 +91,7 @@ T& vector<T>::at(size_t i)
 {
     std::cout<<"at IN PROGRESS"<<std::endl;
     if (i >= size())
-        std::exception;
+        std::out_of_range("Dépassement de dimension!");
     else
         return m_debut[i];
 }
@@ -101,7 +101,7 @@ const T& vector<T>::at(size_t i)const
 {
     std::cout<<"at const IN PROGRESS"<<std::endl;
     if (i >= size())
-        std::exception;
+        std::out_of_range("Dépassement de dimension!");
     else
         return m_debut[i];
 }
