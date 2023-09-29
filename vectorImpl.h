@@ -69,7 +69,8 @@ void vector<T>::push_back(const T& x)
 template <typename T>
 void vector<T>::pop_back()
 {
-    std::cout<<"pop_back A VENIR"<<std::endl;
+    //std::cout<<"pop_back A VENIR"<<std::endl;
+    m_finDim--;
 }
 
 template <typename T>
