@@ -54,8 +54,8 @@ template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
     std::cout<<"reserve  IN PROGRESS"<<std::endl;
-    if (*m_finCap < nCAP)
-        m_finCap = nCAP;
+    if ((m_finCap - m_debut) < nCAP)
+        m_finCap = m_debut + nCAP;
 
 }
 
