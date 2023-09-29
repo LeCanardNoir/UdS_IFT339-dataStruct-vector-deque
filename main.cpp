@@ -24,12 +24,9 @@ int main()
 	cout << endl;
 	vector<int> vector_with_dim_5(5);
 	vector_with_dim_5[0] = 3;
-	cout << vector_with_dim_5[0] << endl;
-
+	cout << "operator [] assignment: " << vector_with_dim_5[0] << endl;
 	vector_with_dim_5.at(1) = 5;
-
-	cout << vector_with_dim_5.at(0) << endl;
-
+	cout << "at() assignment: " << vector_with_dim_5.at(1) << endl;
 	vector_with_dim_5.afficher(cout);
 	cout << endl;
 

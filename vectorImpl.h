@@ -75,21 +75,21 @@ void vector<T>::pop_back()
 template <typename T>
 T& vector<T>::operator[](size_t i)
 {
-    std::cout<<"operator[] IN PROGRESS"<<std::endl;
+    //std::cout<<"operator[] IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::operator[](size_t i)const
 {
-    std::cout<<"operator[]const IN PROGRESS"<<std::endl;
+    //std::cout<<"operator[]const IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 T& vector<T>::at(size_t i)
 {
-    std::cout<<"at IN PROGRESS"<<std::endl;
+    //std::cout<<"at IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
@@ -99,7 +99,7 @@ T& vector<T>::at(size_t i)
 template <typename T>
 const T& vector<T>::at(size_t i)const
 {
-    std::cout<<"at const IN PROGRESS"<<std::endl;
+    //std::cout<<"at const IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
