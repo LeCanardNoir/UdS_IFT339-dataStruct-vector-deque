@@ -23,13 +23,13 @@
 template <typename T>
 void vector<T>::clear()
 {
-    /*std::cout << std::endl << "Ostie de TYPE a marde: " << typeid(T).name() << std::endl ;
-    delete [] m_debut;
-    delete m_finDim;
-    delete m_finCap;
+    std::cout << "clear IN PROGRESS" << std::endl;
+    /*delete [] m_debut;
+    delete [] m_finDim;
+    delete [] m_finCap;
     m_debut = nullptr;
-    m_finDim = 0;
-    m_finCap = 0;*/
+    m_finDim = nullptr;
+    m_finCap = nullptr;*/
 }
 
 ///////////////////////////////////////////////////
@@ -38,7 +38,7 @@ void vector<T>::clear()
 template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
-    std::cout<<"resize IN PROGRESS"<<std::endl;
+    // std::cout<<"resize IN PROGRESS"<<std::endl;
     if ((m_debut + nDIM) > m_finCap) {
         reserve(nDIM);
     }
@@ -52,7 +52,7 @@ void vector<T>::resize(size_t nDIM)
 template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
-    std::cout<<"reserve  IN PROGRESS"<<std::endl;
+    //std::cout<<"reserve  IN PROGRESS"<<std::endl;
     
     if( !m_debut){
         m_debut = new T[1];
@@ -76,8 +76,7 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    //
-    std::cout<<"push_back  IN PROGRESS"<<std::endl;
+    //std::cout<<"push_back  IN PROGRESS"<<std::endl;
     if (m_finDim == m_finCap) {
         const size_t CELLULES_A_AJOUTER = 5;
             reserve(size() + CELLULES_A_AJOUTER);

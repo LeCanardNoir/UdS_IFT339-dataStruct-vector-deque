@@ -14,8 +14,13 @@ int main()
 	cout << endl;
 	vector<int> vector_simple;
 	vector_simple.afficher(cout);
-	cout << endl << "vector_simple.resize(3): " << endl;
+
+	cout << endl << "----------------------------------// vector_simple.push_back(3): " << endl;
 	vector_simple.push_back(3);
+	vector_simple.afficher(cout);
+
+	cout << endl << "----------------------------------// vector_simple.pop_back(): " << endl;
+	vector_simple.pop_back();
 	vector_simple.afficher(cout);
 	cout << endl;
 
@@ -55,6 +60,9 @@ int main()
 	cout << "----------------------------------// vector_vector_double_5:";
 	cout << endl;
 	vector<vector<double>> vector_vector_double_5(5);
+	vector<double> tmp_double_1(5);
+	vector_vector_double_5.push_back(tmp_double_1);
+	vector_vector_double_5[0].push_back(10);
 	vector_vector_double_5[0].afficher(cout);
 	cout << endl;
 
