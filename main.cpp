@@ -72,7 +72,7 @@ int main()
 	vector_with_dim_5.clear();
 	vector_with_dim_10.clear();
 	vector_by_copy_5.clear();
-	cout << endl << "----------------------------------// END";
+	cout << endl << "----------------------------------// END" << endl;
 
 	//cin.ignore();
 	return 0;
