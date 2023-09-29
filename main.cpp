@@ -16,7 +16,7 @@ int main()
 	vector_simple.afficher(cout);
 	cout << endl << "vector_simple.resize(3): " << endl;
 	vector_simple.resize(3);
-	//vector_simple.afficher(cout);
+	vector_simple.afficher(cout);
 	cout << endl;
 
 	cout << endl;

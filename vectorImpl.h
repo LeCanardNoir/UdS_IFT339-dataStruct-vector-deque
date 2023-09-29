@@ -39,11 +39,10 @@ template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
     std::cout<<"resize IN PROGRESS"<<std::endl;
-    int* tmp = m_debut + nDIM;
-    if (tmp > m_finCap) {
+    if ((m_debut + nDIM) > m_finCap) {
         reserve(nDIM);
     }
-    m_finDim = tmp;
+    m_finDim = m_debut + nDIM;
 }
 
 
