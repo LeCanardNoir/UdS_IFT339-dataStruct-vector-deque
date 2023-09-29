@@ -54,6 +54,13 @@ int main()
 	//vector_vector_double[0].afficher(cout);
 	cout << endl;
 
+	cout << endl;
+	cout << "----------------------------------// vector_vector_double_5:";
+	cout << endl;
+	vector<vector<double>> vector_vector_double_5(5);
+	vector_vector_double_5[0].afficher(cout);
+	cout << endl;
+
 
 	cout << endl;
 	vector_simple.clear();
