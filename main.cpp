@@ -14,9 +14,9 @@ int main()
 	cout << endl;
 	vector<int> vector_simple;
 	vector_simple.afficher(cout);
-	cout << "vector_simple.resize(3): " << endl;
+	cout << endl << "vector_simple.resize(3): " << endl;
 	vector_simple.resize(3);
-	vector_simple.afficher(cout);
+	//vector_simple.afficher(cout);
 	cout << endl;
 
 	cout << endl;
