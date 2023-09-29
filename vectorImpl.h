@@ -53,7 +53,13 @@ template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
     std::cout<<"reserve  IN PROGRESS"<<std::endl;
-    if ((m_finCap - m_debut) < nCAP)
+    
+    if( !m_debut){
+        m_debut = new T[1];
+        m_finDim = m_finCap = m_debut;
+        m_finCap = m_finCap + nCAP;
+    }
+    else 
         m_finCap = m_debut + nCAP;
 
 }
@@ -78,10 +84,7 @@ void vector<T>::push_back(const T& x)
     }
 
     m_finDim++;
-    if (!m_debut) {
-        m_debut = new T[m_finDim];
-    }
-    m_debut[m_finDim -1] = x;
+    m_debut[size() -1] = x;
 }
 
 template <typename T>
