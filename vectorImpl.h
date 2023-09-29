@@ -38,7 +38,11 @@ void vector<T>::clear()
 template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
-    std::cout<<"resize A VENIR"<<std::endl;
+    std::cout<<"resize IN PROGRESS"<<std::endl;
+    if ((m_debut + nDIM) > m_finCap) {
+        reserve(nDIM);
+    }
+    m_finDim = m_debut + nDIM;
 }
 
 
@@ -48,7 +52,16 @@ void vector<T>::resize(size_t nDIM)
 template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
-    std::cout<<"reserve A VENIR"<<std::endl;
+    std::cout<<"reserve  IN PROGRESS"<<std::endl;
+    
+    if( !m_debut){
+        m_debut = new T[1];
+        m_finDim = m_finCap = m_debut;
+        m_finCap = m_finCap + nCAP;
+    }
+    else 
+        m_finCap = m_debut + nCAP;
+
 }
 
 ///////////////////////////////////////////////////
@@ -63,14 +76,15 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    //std::cout<<"push_back  À VENIR"<<std::endl;
+    //
+    std::cout<<"push_back  IN PROGRESS"<<std::endl;
     if (m_finDim == m_finCap) {
-        const size_t CELLULES_A_AJOUTER = 5
+        const size_t CELLULES_A_AJOUTER = 5;
             reserve(size() + CELLULES_A_AJOUTER);
     }
 
-    *m_finDim = x;
     m_finDim++;
+    m_debut[size() -1] = x;
 }
 
 template <typename T>
