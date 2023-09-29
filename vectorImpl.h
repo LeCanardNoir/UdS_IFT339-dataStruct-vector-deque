@@ -23,9 +23,13 @@
 template <typename T>
 void vector<T>::clear()
 {
-    delete m_debut;
+    /*std::cout << std::endl << "Ostie de TYPE a marde: " << typeid(T).name() << std::endl ;
+    delete [] m_debut;
+    delete m_finDim;
+    delete m_finCap;
     m_debut = nullptr;
-    m_finDim = m_finCap = 0;
+    m_finDim = 0;
+    m_finCap = 0;*/
 }
 
 ///////////////////////////////////////////////////
@@ -59,7 +63,7 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    std::cout<<"push_back A VENIR"<<std::endl;
+    std::cout<<"push_back  À VENIR"<<std::endl;
 }
 
 template <typename T>
@@ -71,27 +75,35 @@ void vector<T>::pop_back()
 template <typename T>
 T& vector<T>::operator[](size_t i)
 {
-    std::cout<<"operator[] En cours"<<std::endl;
+    std::cout<<"operator[] IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::operator[](size_t i)const
 {
-    std::cout<<"operator[]const En cours"<<std::endl;
+    std::cout<<"operator[]const IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 T& vector<T>::at(size_t i)
 {
-    std::cout<<"at A VENIR"<<std::endl;
+    std::cout<<"at IN PROGRESS"<<std::endl;
+    if (i >= size())
+        std::exception;
+    else
+        return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::at(size_t i)const
 {
-    std::cout<<"at const A VENIR"<<std::endl;
+    std::cout<<"at const IN PROGRESS"<<std::endl;
+    if (i >= size())
+        std::exception;
+    else
+        return m_debut[i];
 }
 
 
