@@ -6,17 +6,21 @@
 #include "deque.h"
 
 using namespace std;
-void testVector();
+void test_vector();
+void test_deque();
+
 int main()
 {
-	testVector();
+	test_vector();
+	cout << endl;
+	test_deque();
 
 	//cin.ignore();
 	return 0;
 }
 
-void testVector() {
-	cout << endl;
+void test_vector() {
+	cout << endl << "/////////////////////////////////////////////////// test_vector()" << endl << endl;
 	cout << "----------------------------------// vector_simple:";
 	cout << endl;
 	vector<int> vector_simple;
@@ -92,4 +96,8 @@ void testVector() {
 	vector_vector_double.afficher(cout);
 	vector_vector_double_5.afficher(cout);
 	cout << endl << "----------------------------------// END" << endl;
+}
+
+void test_deque() {
+	cout << endl << "/////////////////////////////////////////////////// test_deque()" << endl << endl;
 }
