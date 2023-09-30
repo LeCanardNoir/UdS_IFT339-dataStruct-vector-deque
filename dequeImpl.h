@@ -10,8 +10,8 @@
 //
 // =============================================
 //
-//  Nom de l'étudiant : 
-//  Nom de l'étudiant :
+//  Nom de l'étudiant : Bruno Pouliot		poub2702
+//  Nom de l'étudiant : Gabriel Dumont-Hétu	dumg
 //
 // =============================================
 
