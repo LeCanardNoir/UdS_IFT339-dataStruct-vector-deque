@@ -11,7 +11,7 @@ void test_deque();
 
 int main()
 {
-	test_vector();
+	//test_vector();
 	cout << endl;
 	test_deque();
 
@@ -100,4 +100,12 @@ void test_vector() {
 
 void test_deque() {
 	cout << endl << "/////////////////////////////////////////////////// test_deque()" << endl << endl;
+	deque<int> deque_simple;
+	cout << "----------------------------------// deque_simple:" << endl;
+	deque_simple.afficher(cout);
+
+
+	deque<int> deque_5(5);
+	cout << endl << "----------------------------------// deque_5:" << endl;
+	deque_5.afficher(cout);
 }
