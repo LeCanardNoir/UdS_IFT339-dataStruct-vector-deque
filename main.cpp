@@ -52,14 +52,15 @@ int main()
 	cout << endl;
 	cout << "----------------------------------// vector_vector_double:";
 	cout << endl;
-	vector<vector<double>> vector_vector_double();
-	//vector_vector_double[0].afficher(cout);
+	vector<vector<double>> vector_vector_double;
+	vector_vector_double.afficher(cout);
 	cout << endl;
 
 	cout << endl;
 	cout << "----------------------------------// vector_vector_double_5:";
 	cout << endl;
 	vector<vector<double>> vector_vector_double_5(5);
+	vector_vector_double_5.afficher(cout);
 	vector<double> tmp_double_1(5);
 	vector_vector_double_5.push_back(tmp_double_1);
 	vector_vector_double_5[0].push_back(10);
@@ -67,11 +68,13 @@ int main()
 	cout << endl;
 
 
-	cout << endl;
-	vector_simple.clear();
+	//cout << endl << endl << "----------------------------------// CLEAR ALL" << endl;
+	/*vector_simple.clear();
 	vector_with_dim_5.clear();
 	vector_with_dim_10.clear();
 	vector_by_copy_5.clear();
+	vector_vector_double.clear();
+	vector_vector_double_5.clear();*/
 	cout << endl << "----------------------------------// END" << endl;
 
 	//cin.ignore();

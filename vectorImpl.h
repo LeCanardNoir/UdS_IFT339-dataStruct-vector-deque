@@ -25,14 +25,14 @@ void vector<T>::clear()
 {
     std::string tType = typeid(T).name();
     std::string thisType = typeid(this).name();
-    std::cout << "clear IN PROGRESS: " << this << " | this " << thisType << " | T " << tType << std::endl;
+    //std::cout << "clear IN PROGRESS: " << this << " | this " << thisType << " | T " << tType << std::endl;
 
-    delete[] m_debut;
+    if ( (tType.find("6vectorI") != std::string::npos || thisType.find("6vectorIS_I") != std::string::npos) && !m_debut) {
+        delete[] m_debut;
+        delete[] m_finDim;
+        delete[] m_finCap;
+    }
     m_finDim = m_finCap = m_debut = nullptr;
-    /*delete [] m_finDim;
-    delete [] m_finCap;
-    m_finDim = nullptr;
-    m_finCap = nullptr;*/
 }
 
 ///////////////////////////////////////////////////
