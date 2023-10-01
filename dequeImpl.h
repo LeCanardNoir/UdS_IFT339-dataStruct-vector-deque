@@ -121,7 +121,8 @@ template <typename T>
 void deque<T>::pop_back()
 {
 	if (!empty()) {
-		m_debut[m_size - 1] = nullptr;
+		size_t index = ((m_zero + m_size) % m_cap) - 1;
+		m_debut[index] = nullptr;
 		m_size--;
 	}
 }
