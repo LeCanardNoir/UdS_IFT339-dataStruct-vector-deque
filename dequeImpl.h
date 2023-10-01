@@ -45,8 +45,12 @@ void deque<T>::reserve(size_t nCap)
 template <typename T>
 T& deque<T>::operator[](size_t i)
 {
-	//std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
-	return *m_debut[i];
+	//std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;	
+	size_t index = m_zero + i;
+	if (index >= m_cap)
+		index -= m_cap;
+
+	return *m_debut[index];
 }
 
 template <typename T>
@@ -59,7 +63,12 @@ T& deque<T>::at(size_t i)
 template <typename T>
 const T& deque<T>::operator[](size_t i)const
 {
-	return *m_debut[i];
+	std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
+	size_t index = m_zero + i;
+	if (index >= m_cap)
+		index -= m_cap;
+
+	return *m_debut[index];
 }
 
 template <typename T>
