@@ -49,14 +49,19 @@ void deque<T>::reserve(size_t nCap)
 {
 	T** tmp = m_debut;
 	m_debut = nullptr;
-	m_cap = nCap;
-	m_zero += m_cap - m_size;
+	size_t newCap = nCap;
+	size_t newZero = m_zero + (newCap - m_size);
 
-	m_debut = new T*[m_cap];
+	m_debut = new T*[newCap];
 	for (size_t i = 0; i < m_size; i++)
 	{
-		m_debut[m_zero + i] = tmp[i];
+		size_t newIndex = (newZero + i) % newCap;
+		size_t oldIndex = (m_zero + i) % m_cap;
+		m_debut[newIndex] = tmp[oldIndex];
 	}
+
+	m_cap = newCap;
+	m_zero = newZero;
 
 }
 
