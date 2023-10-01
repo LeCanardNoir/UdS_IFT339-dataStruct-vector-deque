@@ -104,6 +104,9 @@ void deque<T>::push_back(const T& val)
 template <typename T>
 void deque<T>::pop_back()
 {
+	if (!empty()) {
+		m_size--;
+	}
 }
 
 template <typename T>
@@ -114,6 +117,10 @@ void deque<T>::push_front(const T& val)
 template <typename T>
 void deque<T>::pop_front()
 {
+	if (!empty()) {
+		m_debut++;
+		m_size--;
+	}
 }
 
 
