@@ -29,17 +29,35 @@ deque<T>::deque(const deque& source)
 template <typename T>
 void deque<T>::resize(size_t nSize)
 {
-	/*if ( size() < nSize) {
-		T** tmp = m_debut;
-		m_debut = nullptr;
-		m_
-	}*/
-	
+	if (nSize < m_size) throw std::invalid_argument("Entrez une valeur plus grande que la dimension actuelle." );
+	//m_size = nSize;
+	if (nSize > m_cap) {
+		reserve(nSize * 2);
+	}
+
+	for (size_t i = 0; i < (nSize - m_size); i++)
+	{
+		m_debut[i] = new T();
+	}
+	m_size = nSize;
+
+
 }
 
 template <typename T>
 void deque<T>::reserve(size_t nCap)
 {
+	T** tmp = m_debut;
+	m_debut = nullptr;
+	m_cap = nCap;
+	m_zero += m_cap - m_size;
+
+	m_debut = new T*[m_cap];
+	for (size_t i = 0; i < m_size; i++)
+	{
+		m_debut[m_zero + i] = tmp[i];
+	}
+
 }
 
 template <typename T>

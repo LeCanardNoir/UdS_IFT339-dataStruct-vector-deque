@@ -114,6 +114,11 @@ void test_deque() {
 	deque_5.at(1) = 10;
 	deque_5.afficher(cout);
 
+
+	cout << endl << "----------------------------------// deque_5_to_10:" << endl;
+	deque_5.resize(10);
+	deque_5.afficher(cout);
+
 	cout << endl << "----------------------------------// deque_vector_5:" << endl;
 	deque<vector<int>> deque_vector_5(5);
 	deque_vector_5[0] = vector<int>(5);
