@@ -35,11 +35,12 @@ void deque<T>::resize(size_t nSize)
 		reserve(nSize * 2);
 	}
 
-	/*for (size_t i = 0; i < (nSize - m_size); i++)
+	for (size_t i = 0; i < (nSize - m_size); i++)
 	{
-		m_debut[i] = new T();
-	}*/
-	//m_size = nSize;
+		size_t index = (m_zero - (m_cap - m_size) + i) % m_cap;
+		m_debut[index] = new T();
+	}
+	m_size = nSize;
 
 
 }
