@@ -99,6 +99,12 @@ const T& deque<T>::at(size_t i)const
 template <typename T>
 void deque<T>::push_back(const T& val)
 {
+	//TODO réserver de la mémoire quand il n'y a plus de place (en arrière)
+
+
+
+	this[m_size] = val;
+	m_size++;
 }
 
 template <typename T>
@@ -112,6 +118,14 @@ void deque<T>::pop_back()
 template <typename T>
 void deque<T>::push_front(const T& val)
 {
+	//TODO réserver de la mémoire quand il n'y a plus de place (en avant)
+
+
+
+
+	m_zero--;
+	m_size++;
+	at(0) = val;
 }
 
 template <typename T>
