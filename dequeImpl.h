@@ -51,7 +51,7 @@ void deque<T>::reserve(size_t nCap)
 	T** tmp = m_debut;
 	m_debut = nullptr;
 	size_t newCap = nCap;
-	size_t newZero = m_zero + (newCap - m_size);
+	size_t newZero = newCap - (m_cap - m_zero);
 
 	m_debut = new T*[newCap];
 	for (size_t i = 0; i < m_size; i++)
