@@ -100,11 +100,23 @@ template <typename T>
 void deque<T>::push_back(const T& val)
 {
 	//TODO réserver de la mémoire quand il n'y a plus de place (en arrière)
-
-
-
-	this[m_size] = val;
-	m_size++;
+	size_t index = !m_debut > 0 ? m_zero : (m_zero + m_size) % m_cap;
+	if (!m_debut) {
+		m_debut = new T*[1];
+		m_size++;
+		m_cap++;
+		m_debut[index] = new T(val);
+	}
+	else if( m_zero <= index){
+		resize(m_size + 1);
+		delete m_debut[index];
+		m_debut[index] = nullptr;
+		m_debut[index] = new T(val);
+	}
+	else {
+		m_debut[index] = new T(val);
+		m_size++;
+	}
 }
 
 template <typename T>
