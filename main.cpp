@@ -119,9 +119,17 @@ void test_deque() {
 	deque_5.resize(10);
 	deque_5[6] = 12;
 	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_10_to_12:" << endl;
 	deque_5.resize(12);
 	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_12_to_22:" << endl;
 	deque_5.resize(22);
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 pop_back:" << endl;
+	deque_5.pop_back();
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 pop_front:" << endl;
+	deque_5.pop_front();
 	deque_5.afficher(cout);
 
 	cout << endl << "----------------------------------// deque_vector_5:" << endl;

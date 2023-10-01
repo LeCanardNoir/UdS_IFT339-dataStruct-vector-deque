@@ -111,6 +111,7 @@ template <typename T>
 void deque<T>::pop_back()
 {
 	if (!empty()) {
+		m_debut[m_size - 1] = nullptr;
 		m_size--;
 	}
 }
@@ -132,7 +133,9 @@ template <typename T>
 void deque<T>::pop_front()
 {
 	if (!empty()) {
-		m_debut++;
+		m_debut[m_zero] = nullptr;
+		//m_debut++;
+		m_zero++;
 		m_size--;
 	}
 }
