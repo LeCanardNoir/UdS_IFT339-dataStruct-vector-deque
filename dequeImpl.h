@@ -35,11 +35,11 @@ void deque<T>::resize(size_t nSize)
 		reserve(nSize * 2);
 	}
 
-	for (size_t i = 0; i < (nSize - m_size); i++)
+	/*for (size_t i = 0; i < (nSize - m_size); i++)
 	{
 		m_debut[i] = new T();
-	}
-	m_size = nSize;
+	}*/
+	//m_size = nSize;
 
 
 }
@@ -64,10 +64,7 @@ template <typename T>
 T& deque<T>::operator[](size_t i)
 {
 	//std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;	
-	size_t index = m_zero + i;
-	if (index >= m_cap)
-		index -= m_cap;
-
+	size_t index = (m_zero + i)%m_cap;
 	return *m_debut[index];
 }
 
@@ -82,10 +79,7 @@ template <typename T>
 const T& deque<T>::operator[](size_t i)const
 {
 	std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
-	size_t index = m_zero + i;
-	if (index >= m_cap)
-		index -= m_cap;
-
+	size_t index = (m_zero + i) % m_cap;
 	return *m_debut[index];
 }
 

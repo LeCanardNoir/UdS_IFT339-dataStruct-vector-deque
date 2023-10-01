@@ -117,6 +117,7 @@ void test_deque() {
 
 	cout << endl << "----------------------------------// deque_5_to_10:" << endl;
 	deque_5.resize(10);
+	deque_5.resize(12);
 	deque_5.afficher(cout);
 
 	cout << endl << "----------------------------------// deque_vector_5:" << endl;
