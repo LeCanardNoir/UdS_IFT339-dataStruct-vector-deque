@@ -109,8 +109,6 @@ void deque<T>::push_back(const T& val)
 	}
 	else if( m_zero <= index){
 		resize(m_size + 1);
-		delete m_debut[index];
-		m_debut[index] = nullptr;
 		m_debut[index] = new T(val);
 	}
 	else {
