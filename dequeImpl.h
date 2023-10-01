@@ -29,6 +29,12 @@ deque<T>::deque(const deque& source)
 template <typename T>
 void deque<T>::resize(size_t nSize)
 {
+	/*if ( size() < nSize) {
+		T** tmp = m_debut;
+		m_debut = nullptr;
+		m_
+	}*/
+	
 }
 
 template <typename T>
@@ -39,21 +45,28 @@ void deque<T>::reserve(size_t nCap)
 template <typename T>
 T& deque<T>::operator[](size_t i)
 {
+	//std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
+	return *m_debut[i];
 }
 
 template <typename T>
 T& deque<T>::at(size_t i)
 {
+	if (i >= size()) throw std::out_of_range("Dépassement de capacité!");
+	return *m_debut[i];
 }
 
 template <typename T>
 const T& deque<T>::operator[](size_t i)const
 {
+	return *m_debut[i];
 }
 
 template <typename T>
 const T& deque<T>::at(size_t i)const
 {
+	if (i >= size()) throw std::out_of_range("Dépassement de capacité!");
+	return *m_debut[i];
 }
 
 template <typename T>

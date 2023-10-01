@@ -100,12 +100,26 @@ void test_vector() {
 
 void test_deque() {
 	cout << endl << "/////////////////////////////////////////////////// test_deque()" << endl << endl;
-	deque<int> deque_simple;
+
 	cout << "----------------------------------// deque_simple:" << endl;
+	deque<int> deque_simple;
 	deque_simple.afficher(cout);
 
 
-	deque<int> deque_5(5);
 	cout << endl << "----------------------------------// deque_5:" << endl;
+	deque<int> deque_5(5);
+	cout << "deque_5.operator[0] = 300" << endl;
+	deque_5[0] = 300;
+	cout << "deque_5.at(1) = 10" << endl;
+	deque_5.at(1) = 10;
 	deque_5.afficher(cout);
+
+	cout << endl << "----------------------------------// deque_vector_5:" << endl;
+	deque<vector<int>> deque_vector_5(5);
+	deque_vector_5[0] = vector<int>(5);
+	deque_vector_5[1] = vector<int>(10);
+	deque_vector_5[0][0] = 99;
+	deque_vector_5[1][0] = 3000;
+	deque_vector_5.afficher(cout);
+	deque_vector_5[0].afficher(cout);
 }
