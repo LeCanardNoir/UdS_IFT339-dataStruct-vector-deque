@@ -84,7 +84,7 @@ T& deque<T>::at(size_t i)
 template <typename T>
 const T& deque<T>::operator[](size_t i)const
 {
-	std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
+	//std::cout << std::endl << "operator[] IN PROGRESS" << std::endl;
 	size_t index = (m_zero + i) % m_cap;
 	return *m_debut[index];
 }
