@@ -11,7 +11,7 @@ void test_deque();
 
 int main()
 {
-	test_vector();
+	//test_vector();
 	cout << endl;
 	test_deque();
 
@@ -100,4 +100,73 @@ void test_vector() {
 
 void test_deque() {
 	cout << endl << "/////////////////////////////////////////////////// test_deque()" << endl << endl;
+
+	cout << "----------------------------------// deque_simple:" << endl;
+	deque<int> deque_simple;
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(66):" << endl;
+	deque_simple.push_front(66);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(99):" << endl;
+	deque_simple.push_front(99);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_back(50):" << endl;
+	deque_simple.push_back(50);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_back(100):" << endl;
+	deque_simple.push_back(100);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_back(200):" << endl;
+	deque_simple.push_back(200);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_back(300):" << endl;
+	cout << "----------------------------------// deque_simple.push_back(400):" << endl;
+	deque_simple.push_back(300);
+	deque_simple.push_back(400);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(11111):" << endl;
+	deque_simple.push_front(11111);
+	deque_simple.afficher(cout);
+
+
+	cout << endl << "----------------------------------// deque_5:" << endl;
+	deque<int> deque_5(5);
+	cout << "deque_5.operator[0] = 300" << endl;
+	deque_5[0] = 300;
+	cout << "deque_5.at(1) = 10" << endl;
+	deque_5.at(1) = 10;
+	deque_5.afficher(cout);
+
+
+	cout << endl << "----------------------------------// deque_5_to_10:" << endl;
+	deque_5.resize(10);
+	deque_5[6] = 12;
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_10_to_12:" << endl;
+	deque_5.resize(12);
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_12_to_22:" << endl;
+	deque_5.resize(22);
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 pop_back():" << endl;
+	deque_5.pop_back();
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 pop_front():" << endl;
+	deque_5.pop_front();
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 push_back(9999):" << endl;
+	deque_5.push_back(9999);
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 push_front(5555):" << endl;
+	deque_5.push_front(5555);
+	deque_5.afficher(cout);
+
+	cout << endl << "----------------------------------// deque_vector_5:" << endl;
+	deque<vector<int>> deque_vector_5(5);
+	deque_vector_5[0] = vector<int>(5);
+	deque_vector_5[1] = vector<int>(10);
+	deque_vector_5[0][0] = 99;
+	deque_vector_5[1][0] = 3000;
+	deque_vector_5.afficher(cout);
+	deque_vector_5[0].afficher(cout);
 }
