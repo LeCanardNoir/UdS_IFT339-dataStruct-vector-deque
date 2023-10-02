@@ -100,7 +100,7 @@ template <typename T>
 void deque<T>::push_back(const T& val)
 {
 	//TODO réserver de la mémoire quand il n'y a plus de place (en arrière)
-	size_t index = !m_debut > 0 ? m_zero : (m_zero + m_size) % m_cap;
+	size_t index = !m_debut ? m_zero : (m_zero + m_size) % m_cap;
 	if (!m_debut) {
 		m_debut = new T*[1];
 		m_size++;
@@ -109,9 +109,13 @@ void deque<T>::push_back(const T& val)
 	}
 	else if( m_zero <= index){
 		resize(m_size + 1);
+		delete m_debut[index];
+		m_debut[index] = nullptr;
 		m_debut[index] = new T(val);
 	}
 	else {
+		delete m_debut[index];
+		m_debut[index] = nullptr;
 		m_debut[index] = new T(val);
 		m_size++;
 	}
@@ -122,6 +126,7 @@ void deque<T>::pop_back()
 {
 	if (!empty()) {
 		size_t index = ((m_zero + m_size) % m_cap) - 1;
+		delete m_debut[index];
 		m_debut[index] = nullptr;
 		m_size--;
 	}
@@ -131,13 +136,23 @@ template <typename T>
 void deque<T>::push_front(const T& val)
 {
 	//TODO réserver de la mémoire quand il n'y a plus de place (en avant)
-
-
-
-
-	m_zero--;
-	m_size++;
-	at(0) = val;
+	size_t index = !m_debut ? m_zero : ((m_zero + m_size) % m_cap) - 1;
+	if (!m_debut) {
+		m_debut = new T * [1];
+		m_size++;
+		m_cap++;
+		m_debut[index] = new T(val);
+	}
+	else if (m_size >= ((m_zero + m_size) % m_cap)) {
+		resize(m_size + 1);
+		m_zero = ((m_zero) % m_cap) -1;
+		m_debut[m_zero] = new T(val);
+	}
+	else {
+		m_debut[index] = new T(val);
+		m_zero--;
+		m_size++;
+	}
 }
 
 template <typename T>

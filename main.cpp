@@ -104,6 +104,12 @@ void test_deque() {
 	cout << "----------------------------------// deque_simple:" << endl;
 	deque<int> deque_simple;
 	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(66):" << endl;
+	deque_simple.push_front(66);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(99):" << endl;
+	deque_simple.push_front(99);
+	deque_simple.afficher(cout);
 	cout << "----------------------------------// deque_simple.push_back(50):" << endl;
 	deque_simple.push_back(50);
 	deque_simple.afficher(cout);
@@ -117,6 +123,9 @@ void test_deque() {
 	cout << "----------------------------------// deque_simple.push_back(400):" << endl;
 	deque_simple.push_back(300);
 	deque_simple.push_back(400);
+	deque_simple.afficher(cout);
+	cout << "----------------------------------// deque_simple.push_front(11111):" << endl;
+	deque_simple.push_front(11111);
 	deque_simple.afficher(cout);
 
 
@@ -145,8 +154,11 @@ void test_deque() {
 	cout << endl << "----------------------------------// deque_22 pop_front():" << endl;
 	deque_5.pop_front();
 	deque_5.afficher(cout);
-	cout << endl << "----------------------------------// deque_22 push_back():" << endl;
+	cout << endl << "----------------------------------// deque_22 push_back(9999):" << endl;
 	deque_5.push_back(9999);
+	deque_5.afficher(cout);
+	cout << endl << "----------------------------------// deque_22 push_front(5555):" << endl;
+	deque_5.push_front(5555);
 	deque_5.afficher(cout);
 
 	cout << endl << "----------------------------------// deque_vector_5:" << endl;
