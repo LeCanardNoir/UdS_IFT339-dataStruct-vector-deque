@@ -86,7 +86,7 @@ void test_vector() {
 	vector_with_dim_10.clear();
 	vector_by_copy_5.clear();
 	vector_vector_double.clear();
-	tmp_double_1.clear();
+	//tmp_double_1.clear();
 	vector_vector_double_5.clear();
 
 

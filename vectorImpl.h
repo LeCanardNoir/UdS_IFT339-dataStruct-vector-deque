@@ -71,10 +71,8 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    //std::cout<<"push_back  IN PROGRESS"<<std::endl;
-    if (m_finDim == m_finCap) {
-        const size_t CELLULES_A_AJOUTER = 5;
-            reserve(size() + CELLULES_A_AJOUTER);
+    if (&m_finDim[1] > m_finCap) {
+        reserve((size() + 1) *2 );
     }
 
     m_finDim++;
