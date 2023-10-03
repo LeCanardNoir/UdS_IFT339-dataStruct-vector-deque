@@ -74,7 +74,7 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    if (&m_finDim[1] > m_finCap) {
+    if ((m_finDim +1 ) > m_finCap) {
         reserve((size() + 1) *2 );
     }
 

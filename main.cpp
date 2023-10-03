@@ -90,13 +90,13 @@ void test_vector() {
 	vector_vector_double_5.clear();
 
 
-	vector_simple.afficher(cout);
+	/*vector_simple.afficher(cout);
 	vector_with_dim_5.afficher(cout);
 	vector_with_dim_10.afficher(cout);
 	vector_by_copy_5.afficher(cout);
 	vector_vector_double.afficher(cout);
 	tmp_double_1.afficher(cout);
-	vector_vector_double_5.afficher(cout);
+	vector_vector_double_5.afficher(cout);*/
 	cout << endl << "----------------------------------// END" << endl;
 }
 
