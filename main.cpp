@@ -11,7 +11,7 @@ void test_deque();
 
 int main()
 {
-	//test_vector();
+	test_vector();
 	cout << endl;
 	test_deque();
 
@@ -86,6 +86,7 @@ void test_vector() {
 	vector_with_dim_10.clear();
 	vector_by_copy_5.clear();
 	vector_vector_double.clear();
+	tmp_double_1.clear();
 	vector_vector_double_5.clear();
 
 
@@ -94,6 +95,7 @@ void test_vector() {
 	vector_with_dim_10.afficher(cout);
 	vector_by_copy_5.afficher(cout);
 	vector_vector_double.afficher(cout);
+	tmp_double_1.afficher(cout);
 	vector_vector_double_5.afficher(cout);
 	cout << endl << "----------------------------------// END" << endl;
 }
