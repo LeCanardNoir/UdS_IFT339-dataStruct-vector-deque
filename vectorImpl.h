@@ -23,7 +23,10 @@
 template <typename T>
 void vector<T>::clear()
 {  
+
     delete[] m_debut;
+    delete[] m_finCap;
+    delete[] m_finDim;
     m_finDim = m_finCap = m_debut = nullptr;
 }
 
