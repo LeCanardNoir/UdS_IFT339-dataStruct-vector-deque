@@ -9,7 +9,7 @@
 // =============================================
 //
 //  Nom de l'étudiant : Bruno Pouliot           poub2702
-//  Nom de l'étudiant : Gabriel Dumont-Hétu     dumg
+//  Nom de l'étudiant : Gabriel Dumont-Hétu     dumg1203
 //
 // =============================================
 
@@ -37,10 +37,19 @@ template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
     // std::cout<<"resize IN PROGRESS"<<std::endl;
-    if ((m_debut + nDIM) > m_finCap) {
+    /*if ((m_debut + nDIM) > m_finCap) {
         reserve((nDIM + 1) * 2);
     }
+    m_finDim = m_debut + nDIM;//*/
+
+    const size_t CAP = m_finCap - m_debut;
+
+    
+    if(nDIM > CAP) {
+        reserve(nDIM);
+    }
     m_finDim = m_debut + nDIM;
+
 }
 
 
@@ -51,13 +60,25 @@ template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
     //std::cout<<"reserve  IN PROGRESS"<<std::endl;
-    
-    if( !m_debut ){
-        m_debut = new T(1);
-        m_finDim = m_finCap = m_debut;
-        //m_finCap = m_debut + nCAP;
+
+    size_t nbElements = size();
+
+    if (nCAP == 0) {
+        m_finDim = m_finCap = m_debut = nullptr;
     }
-    m_finCap = m_debut + nCAP;
+    else {
+        T* temp = new T[nCAP];
+        iterator it = begin();
+        size_t index = 0;
+        while (index < nbElements && index < nCAP) {
+            temp[index] = *it;
+            ++index;
+            ++it;
+        }
+        m_debut = temp;
+        m_finDim = m_debut + nbElements;
+        m_finCap = m_debut + nCAP;
+    }
 
 }
 
@@ -73,11 +94,20 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    if ((m_finDim +1 ) > m_finCap) {
-        reserve((size() + 1) *2 );
-    }
+    size_t sizeAvantResize = size();
+    size_t cap = m_finCap - m_debut;
 
-    m_debut[size()] = x;
+
+    if (sizeAvantResize >= cap) {
+        size_t nouveauSize = (size() + 1) * 2;
+        reserve(nouveauSize);
+    }
+    else {
+        resize(size() + 1);
+    }
+    size_t s2 = size();
+
+    m_debut[sizeAvantResize] = x;
     m_finDim++;
 }
 
