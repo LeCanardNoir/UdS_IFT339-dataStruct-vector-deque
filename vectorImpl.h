@@ -23,10 +23,9 @@
 template <typename T>
 void vector<T>::clear()
 {  
-    //m_finDim = m_finCap = m_debut;
-    delete[] m_debut;
     /*delete[] m_finCap;
     delete[] m_finDim;*/
+    delete[] m_debut;
     m_finDim = m_finCap = m_debut = nullptr;
 }
 
@@ -52,11 +51,15 @@ void vector<T>::reserve(size_t nCAP)
 {
     //std::cout<<"reserve  IN PROGRESS"<<std::endl;
     
-    if( !m_debut ){
-        m_debut = new T(1);
-        m_finDim = m_finCap = m_debut;
-        //m_finCap = m_debut + nCAP;
-    }
+    T* tmp = new T[nCAP];
+    std::swap(tmp, m_debut);
+    /*delete[] m_debut;
+    m_debut = tmp;*/
+    //_finDim = m_debut + ;
+    //if( !m_debut ){
+    //    //m_finCap = m_debut + nCAP;
+    //}
+    m_finDim = !m_finDim ? m_debut +1 : m_debut + size();
     m_finCap = m_debut + nCAP;
 
 }

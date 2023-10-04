@@ -28,6 +28,7 @@ void test_vector() {
 
 	cout << endl << "----------------------------------// vector_simple.push_back(3): " << endl;
 	vector_simple.push_back(3);
+	vector_simple.push_back(5);
 	vector_simple.afficher(cout);
 
 	cout << endl << "----------------------------------// vector_simple.pop_back(): " << endl;
