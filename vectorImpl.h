@@ -38,7 +38,7 @@ void vector<T>::resize(size_t nDIM)
 {
     // std::cout<<"resize IN PROGRESS"<<std::endl;
     if ((m_debut + nDIM) > m_finCap) {
-        reserve(nDIM);
+        reserve((nDIM + 1) * 2);
     }
     m_finDim = m_debut + nDIM;
 }
@@ -53,12 +53,11 @@ void vector<T>::reserve(size_t nCAP)
     //std::cout<<"reserve  IN PROGRESS"<<std::endl;
     
     if( !m_debut ){
-        m_debut = new T[1];
+        m_debut = new T(1);
         m_finDim = m_finCap = m_debut;
-        m_finCap = m_finCap + nCAP;
+        //m_finCap = m_debut + nCAP;
     }
-    else 
-        m_finCap = m_debut + nCAP;
+    m_finCap = m_debut + nCAP;
 
 }
 

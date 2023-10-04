@@ -89,7 +89,7 @@ void test_vector() {
 	cout << "----------------------------------// tmp_double_1 after push_back():";
 	cout << endl;
 	tmp_double_1.afficher(cout);
-	vector_vector_double_5.push_back(tmp_double_1);
+	//vector_vector_double_5.push_back(tmp_double_1);
 	vector_vector_double_5[0].push_back(10);
 	vector_vector_double_5[0].push_back(12);
 	vector_vector_double_5.afficher(cout);
@@ -113,7 +113,7 @@ void test_vector() {
 	vector_vector_double.afficher(cout);
 	tmp_double_1.afficher(cout);
 	vector_vector_double_5.afficher(cout);*/
-	cout << endl << "----------------------------------// END" << endl;
+	cout << endl << "----------------------------------// VECTOR END" << endl;
 }
 
 void test_deque() {
@@ -187,4 +187,5 @@ void test_deque() {
 	deque_vector_5[1][0] = 3000;
 	deque_vector_5.afficher(cout);
 	deque_vector_5[0].afficher(cout);
+	cout << endl << "----------------------------------// DEQUE END" << endl;
 }
