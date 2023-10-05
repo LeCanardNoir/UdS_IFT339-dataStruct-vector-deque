@@ -188,4 +188,5 @@ void test_deque() {
 	deque_vector_5.afficher(cout);
 	deque_vector_5[0].afficher(cout);
 	cout << endl << "----------------------------------// DEQUE END" << endl;
+	//cin.ignore();
 }
