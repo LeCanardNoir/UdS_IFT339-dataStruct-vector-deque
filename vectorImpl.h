@@ -33,11 +33,6 @@ void vector<T>::clear()
 template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
-    // std::cout<<"resize IN PROGRESS"<<std::endl;
-    /*if ((m_debut + nDIM) > m_finCap) {
-        reserve((nDIM + 1) * 2);
-    }
-    m_finDim = m_debut + nDIM;//*/
 
     const size_t CAP = m_finCap - m_debut;
 
@@ -56,7 +51,6 @@ void vector<T>::resize(size_t nDIM)
 template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
-    //std::cout<<"reserve  IN PROGRESS"<<std::endl;
 
     size_t nbElements = size();
 
@@ -102,7 +96,6 @@ void vector<T>::push_back(const T& x)
     else {
         resize(size() + 1);
     }
-    size_t s2 = size();
 
     m_debut[sizeAvantResize] = x;
     m_finDim++;
@@ -111,7 +104,6 @@ void vector<T>::push_back(const T& x)
 template <typename T>
 void vector<T>::pop_back()
 {
-    //std::cout<<"pop_back A VENIR"<<std::endl;
     if (size() > 0) {
         m_finDim--;
     }
@@ -120,21 +112,18 @@ void vector<T>::pop_back()
 template <typename T>
 T& vector<T>::operator[](size_t i)
 {
-    //std::cout<<"operator[] IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::operator[](size_t i)const
 {
-    //std::cout<<"operator[]const IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 T& vector<T>::at(size_t i)
 {
-    //std::cout<<"at IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
@@ -144,7 +133,6 @@ T& vector<T>::at(size_t i)
 template <typename T>
 const T& vector<T>::at(size_t i)const
 {
-    //std::cout<<"at const IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
