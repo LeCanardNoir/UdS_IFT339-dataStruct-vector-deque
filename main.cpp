@@ -11,7 +11,7 @@ void test_deque();
 
 int main()
 {
-	//test_vector();
+	test_vector();
 	cout << endl;
 	test_deque();
 
@@ -73,7 +73,23 @@ void test_vector() {
 	vector<vector<double>> vector_vector_double_5(5);
 	vector_vector_double_5.afficher(cout);
 	vector<double> tmp_double_1(5);
+	tmp_double_1[0] = 0.5;
+	tmp_double_1[1] = 1.5;
+	tmp_double_1[2] = 2.5;
+	tmp_double_1[3] = 3.5;
+	tmp_double_1[4] = 4.5;
+	cout << endl;
+	cout << "----------------------------------// tmp_double_1:";
+	cout << endl;
+	tmp_double_1.afficher(cout);
+	vector_vector_double_5[1] = tmp_double_1;
+	vector_vector_double_5[2] = tmp_double_1;
 	vector_vector_double_5.push_back(tmp_double_1);
+	cout << endl;
+	cout << "----------------------------------// tmp_double_1 after push_back():";
+	cout << endl;
+	tmp_double_1.afficher(cout);
+	//vector_vector_double_5.push_back(tmp_double_1);
 	vector_vector_double_5[0].push_back(10);
 	vector_vector_double_5[0].push_back(12);
 	vector_vector_double_5.afficher(cout);
@@ -87,6 +103,7 @@ void test_vector() {
 	vector_by_copy_5.clear();
 	vector_vector_double.clear();
 	vector_vector_double_5.clear();
+	tmp_double_1.clear();
 
 
 	vector_simple.afficher(cout);
@@ -94,8 +111,9 @@ void test_vector() {
 	vector_with_dim_10.afficher(cout);
 	vector_by_copy_5.afficher(cout);
 	vector_vector_double.afficher(cout);
+	tmp_double_1.afficher(cout);
 	vector_vector_double_5.afficher(cout);
-	cout << endl << "----------------------------------// END" << endl;
+	cout << endl << "----------------------------------// VECTOR END" << endl;
 }
 
 void test_deque() {
@@ -163,10 +181,27 @@ void test_deque() {
 
 	cout << endl << "----------------------------------// deque_vector_5:" << endl;
 	deque<vector<int>> deque_vector_5(5);
+	deque_vector_5.afficher(cout);
 	deque_vector_5[0] = vector<int>(5);
+	deque_vector_5.afficher(cout);
 	deque_vector_5[1] = vector<int>(10);
+	deque_vector_5.afficher(cout);
 	deque_vector_5[0][0] = 99;
+	deque_vector_5.afficher(cout);
 	deque_vector_5[1][0] = 3000;
 	deque_vector_5.afficher(cout);
 	deque_vector_5[0].afficher(cout);
+
+
+	cout << endl << endl << "----------------------------------// CLEAR ALL" << endl;
+	deque_simple.clear();
+	deque_5.clear();
+	deque_vector_5.clear();
+
+	deque_simple.afficher(cout);
+	deque_5.afficher(cout);
+	deque_vector_5.afficher(cout);
+
+
+	cout << endl << "----------------------------------// DEQUE END" << endl;
 }

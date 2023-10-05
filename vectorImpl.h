@@ -9,7 +9,7 @@
 // =============================================
 //
 //  Nom de l'étudiant : Bruno Pouliot           poub2702
-//  Nom de l'étudiant : Gabriel Dumont-Hétu     dumg
+//  Nom de l'étudiant : Gabriel Dumont-Hétu     dumg1203
 //
 // =============================================
 
@@ -22,16 +22,8 @@
 
 template <typename T>
 void vector<T>::clear()
-{
-    std::string tType = typeid(T).name();
-    std::string thisType = typeid(this).name();
-    //std::cout << "clear IN PROGRESS: " << this << " | this " << thisType << " | T " << tType << std::endl;
-
-    if ( (tType.find("6vectorI") != std::string::npos || thisType.find("6vectorIS_I") != std::string::npos) && !m_debut) {
-        delete[] m_debut;
-        delete[] m_finDim;
-        delete[] m_finCap;
-    }
+{  
+    delete[] m_debut;
     m_finDim = m_finCap = m_debut = nullptr;
 }
 
@@ -41,11 +33,15 @@ void vector<T>::clear()
 template <typename T>
 void vector<T>::resize(size_t nDIM)
 {
-    // std::cout<<"resize IN PROGRESS"<<std::endl;
-    if ((m_debut + nDIM) > m_finCap) {
+
+    const size_t CAP = m_finCap - m_debut;
+
+    
+    if(nDIM > CAP) {
         reserve(nDIM);
     }
     m_finDim = m_debut + nDIM;
+
 }
 
 
@@ -55,15 +51,25 @@ void vector<T>::resize(size_t nDIM)
 template <typename T>
 void vector<T>::reserve(size_t nCAP)
 {
-    //std::cout<<"reserve  IN PROGRESS"<<std::endl;
-    
-    if( !m_debut){
-        m_debut = new T[1];
-        m_finDim = m_finCap = m_debut;
-        m_finCap = m_finCap + nCAP;
+
+    size_t nbElements = size();
+
+    if (nCAP == 0) {
+        m_finDim = m_finCap = m_debut = nullptr;
     }
-    else 
+    else {
+        T* temp = new T[nCAP];
+        iterator it = begin();
+        size_t index = 0;
+        while (index < nbElements && index < nCAP) {
+            temp[index] = *it;
+            ++index;
+            ++it;
+        }
+        m_debut = temp;
+        m_finDim = m_debut + nbElements;
         m_finCap = m_debut + nCAP;
+    }
 
 }
 
@@ -79,20 +85,25 @@ void vector<T>::reserve(size_t nCAP)
 template <typename T>
 void vector<T>::push_back(const T& x)
 {
-    //std::cout<<"push_back  IN PROGRESS"<<std::endl;
-    if (m_finDim == m_finCap) {
-        const size_t CELLULES_A_AJOUTER = 5;
-            reserve(size() + CELLULES_A_AJOUTER);
+    size_t sizeAvantResize = size();
+    size_t cap = m_finCap - m_debut;
+
+
+    if (sizeAvantResize >= cap) {
+        size_t nouveauSize = (size() + 1) * 2;
+        reserve(nouveauSize);
+    }
+    else {
+        resize(size() + 1);
     }
 
+    m_debut[sizeAvantResize] = x;
     m_finDim++;
-    m_debut[size() -1] = x;
 }
 
 template <typename T>
 void vector<T>::pop_back()
 {
-    //std::cout<<"pop_back A VENIR"<<std::endl;
     if (size() > 0) {
         m_finDim--;
     }
@@ -101,21 +112,18 @@ void vector<T>::pop_back()
 template <typename T>
 T& vector<T>::operator[](size_t i)
 {
-    //std::cout<<"operator[] IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 const T& vector<T>::operator[](size_t i)const
 {
-    //std::cout<<"operator[]const IN PROGRESS"<<std::endl;
     return m_debut[i];
 }
 
 template <typename T>
 T& vector<T>::at(size_t i)
 {
-    //std::cout<<"at IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
@@ -125,7 +133,6 @@ T& vector<T>::at(size_t i)
 template <typename T>
 const T& vector<T>::at(size_t i)const
 {
-    //std::cout<<"at const IN PROGRESS"<<std::endl;
     if (i >= size())
         std::out_of_range("Dépassement de dimension!");
     else
